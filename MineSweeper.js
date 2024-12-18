@@ -60,11 +60,15 @@ function buildBoard1() {
                 isMarked: false
             }
             board[i][j] = cell
-            console.log(cell);
         }
     }
     board[1][1].isMine = board[3][3].isMine = true
-    
+
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board.length; j++) {
+            if (board[i][j].isMine) board[i][j] = MINES
+        }
+    }
     return board
 }
 
@@ -95,7 +99,7 @@ function setMinesNegsCount(board, cellI, cellJ) {
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (i === cellI && j === cellJ) continue
             if (j < 0 || j >= board[i].length) continue
-            if (board[i][j]) count++
+            if (board[i][j].isMine) count++
         }
     }
     console.log(count);
