@@ -3,8 +3,8 @@ const MINES = '💣'
 
 
 
-var gCell = {
-    minesAroundCount: 2,
+var gBoard = {
+    minesAroundCount: 0,
     isShown: false,
     isMine: false,
     isMarked: true
@@ -23,13 +23,15 @@ var gGame = {
 }
 
 var gBoardGame
-var gCell
+var gBoard
 
 function onInit() {
     gBoardGame = buildBoard1()
     console.table(gBoardGame);
 
     renderBoard(gBoardGame)
+    console.log(setMinesNegsCount(gBoardGame, 2, 2));
+
 
 }
 
@@ -72,17 +74,17 @@ function buildBoard1() {
     return board
 }
 
-function renderBoard(mat) {
+function renderBoard() {
 
     var strHTML = '<table><tbody>'
     for (var i = 0; i < gLevel.SIZE; i++) {
 
         strHTML += '<tr>'
         for (var j = 0; j < gLevel.SIZE; j++) {
-            gCell = gBoardGame[i][j]
+            gBoard = gBoardGame[i][j]
             const className = `cell cell-${i}-${j}`
-
-            strHTML += `<td class="${className}">${gCell}</td>`
+            const checkCell = setMinesNegsCount(gBoardGame, i, j)
+            strHTML += `<td class="${className}">${gBoard}${checkCell}</td>`
         }
         strHTML += '</tr>'
     }
@@ -99,10 +101,10 @@ function setMinesNegsCount(board, cellI, cellJ) {
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (i === cellI && j === cellJ) continue
             if (j < 0 || j >= board[i].length) continue
-            if (board[i][j].isMine) count++
+            
+            if (board[i][j] === MINES) count++
         }
     }
-    console.log(count);
 
     return count
 }
