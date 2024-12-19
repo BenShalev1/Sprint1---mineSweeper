@@ -11,10 +11,21 @@
 <body onload="onInit()">
 
     <h1>Mine Sweeper</h1>
+    <div class="Lives">Lives : <span></span></div>
+    <button class="smileyBtn" onclick="resetBoard()">😊</button>
 
     <div class="container" oncontextmenu="return false">
 
     </div>
+
+    <div class="levelsOfGame">
+        <button class="btnBoard" onclick="beginnerBoard()">Beginner</button>
+        <button class="btnBoard" onclick="mediumBoard()">Medium</button>
+        <button class="btnBoard" onclick="expertBoard()">Expert</button>
+
+    </div>
+
+    <footer class="footer">Ben Shalev</footer>
 
     <script src="./utils.js"></script>
     <script src="./MineSweeper.js"></script>

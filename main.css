@@ -1,16 +1,104 @@
-table {
-    border-collapse: separate; 
-    border-spacing: 1px; 
-    width: 20%; 
-    margin: 0 auto; 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./premium_photo-1672115680958-54438df0ab82.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0
+}
+
+h1 {
+    text-align: center;
+    color: rgb(10, 65, 113);;
+}
+
+.smileyBtn {
+    margin-left: 48%;
+    padding: 2px;
+    border: none;
+    height: 20px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: 0.5s;
+}
+.smileyBtn:hover{
+    background-color: rgb(191, 216, 238);
+    transition: 0.5s;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    width: 20%;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 3px 8px 5px 3px;
 }
 
 td {
-    width: 50px; 
-    height: 50px; 
-    text-align: center; 
-    border: 1px solid black; 
-    font-size: 20px; 
-    background-color: rgba(128, 128, 128, 0.459); 
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 20px;
+    background-color: rgb(228, 228, 228);
+    transition: 0.3s;
+}
+td:hover{
+    background-color: rgb(161, 159, 159);
+    transition: 0.3s;
+}
+
+.levelsOfGame {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btnBoard {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(21, 183, 224);
+}
+
+.btnBoard:hover {
+    transition: 0.3s;
+    background-color: rgb(103, 163, 227);
+    color: aliceblue;
+    height: 40px;
+    width: 120px;
+}
+
+.Lives {
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.smileyBtn {
+    width: 50px;
+    height: 30px;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(191, 216, 238);
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 25%;
+    width: 50%;
+    height: 40px;
+    filter: blur(0.3px); 
+    transition: filter 0.3s ease-in-out;
 }

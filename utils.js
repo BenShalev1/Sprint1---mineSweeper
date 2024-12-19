@@ -16,7 +16,7 @@
 //         strHTML += '</tr>'
 //     }
 //     strHTML += '</tbody></table>'
-    
+
 //     const elContainer = document.querySelector(selector)
 //     elContainer.innerHTML = strHTML
 // }
@@ -27,8 +27,11 @@ function renderCell(location, value) {
     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
     elCell.innerHTML = value
     elCell.classList.add('revealed')
-}
 
+    if (value === MINES) {
+        elCell.classList.add('mine');
+    }
+}
 
 
 // function showModal(isVictory) {
@@ -36,7 +39,7 @@ function renderCell(location, value) {
 //     const victory = 'You Win'
 //     const notVictory = 'You Lose'
 //     const msg = (isVictory) ? victory : notVictory
-    
+
 //     var elSpan = document.querySelector('.modal span')
 //     var elModal = document.querySelector('.modal')
 //     elSpan.innerText = msg
@@ -63,20 +66,20 @@ function getRandomColor() {
 
 
 function emptyCells() {
-	var emptyCells = []
+    var emptyCells = []
 
-	for (var i = 1; i < gBoard.length - 1; i++) {
-		for (var j = 1; j < gBoard[0].length - 1; j++) {
-			var currCell = gBoard[i][j]
+    for (var i = 1; i < gBoard.length - 1; i++) {
+        for (var j = 1; j < gBoard[0].length - 1; j++) {
+            var currCell = gBoard[i][j]
 
-			if (currCell.gameElement === null) {
-				emptyCells.push({ i, j })
-			}
-		}
-	}
+            if (currCell.gameElement === null) {
+                emptyCells.push({ i, j })
+            }
+        }
+    }
 
     return emptyCells
-	
+
 }
 
 
@@ -84,7 +87,7 @@ function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-  }
+}
 
 
 function createMat(rows, cols) {
@@ -102,12 +105,12 @@ function createMat(rows, cols) {
 
 function showModal() {
     var elmodal = document.querySelector('.modal')
-    elmodal.style.display = 'block' 
+    elmodal.style.display = 'block'
 }
 
 function hideModal() {
     var elmodal = document.querySelector('.modal')
-    elmodal.style.display = 'none' 
+    elmodal.style.display = 'none'
 }
 
 function addSound() {
